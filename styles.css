@@ -4,11 +4,17 @@
 
 
 
+
 }
 nav {
 background-color: var(--primary-blue);
 
 
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    /* font used as placeholder for now */ 
 }
 
 #description{
@@ -17,8 +23,10 @@ background-color: var(--primary-blue);
 
 }
 
+
 #description p{
 font-size: 20px;
+
 }
 
 h1{
@@ -71,10 +79,47 @@ margin-right: 50px;
 }
 
 .input-fields-info{
-
-
-
-
+    
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
 
     
+}
+
+.input-fields-info h3 {
+    display: flex;
+    align-items: center;
+    &::before {
+        content: url(eecu-images/eye.png);
+        margin-right: 7px;
+    }
+    margin-left: 10px;
+}
+/* fix <p> or info to center */
+
+.inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 25px;
+    
+}
+
+.inputs * {
+    padding: 20px;
+    border-radius: 20px;;
+}
+
+#input-fields section h2 {
+    font-size: 40px;
+    line-height: 0px;
+    
+}
+
+#input-fields > section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
