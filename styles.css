@@ -6,7 +6,7 @@
 }
 
 main {
-    margin: 0px 100px;
+    margin: 0px 200px;
 }
 
 nav {
@@ -75,12 +75,16 @@ h1, h2, h3 {
 
 
 #description p{
-font-size: 20px;
+font-size: 30px;
 margin-bottom: 10px;
 }
 
+#description p:last-child {
+    margin-bottom: 50px;
+}
+
 #description p:nth-child(2) {
-    font-size: 25px;
+    font-size: 35px;
     text-decoration: underline;
     &::after {
         content: "⬇️";
@@ -151,7 +155,10 @@ margin-right: 50px;
     border-radius: 20px;
     padding: 5px;
 
-    
+    & > p {
+        padding: 10px;
+        font-size: 20px;
+    }
 }
 
 .input-fields-info h3 {
@@ -200,6 +207,10 @@ margin-right: 50px;
     justify-content: space-between;
 }
 
+.Buttons .hidden {
+    display: none;
+}
+
 .NextBtn, .BackBtn {
     font-weight: bold;
     margin-top: 50px;
@@ -230,4 +241,11 @@ margin-right: 50px;
     &:hover {
         background-color: var(--light-grey);
     }
+}
+
+
+/* Make the placeholder font bigger */
+.options option {
+    font-size: 20px;
+
 }
