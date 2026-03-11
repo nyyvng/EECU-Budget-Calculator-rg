@@ -62,3 +62,59 @@ backButton.addEventListener("click", () => {
 })
 
 // Chart
+/**
+ * @param {NodeListOf<HTMLInputElement>} inputs 
+ */
+
+function sum(inputs) {
+    const arr = Array.from(inputs);
+    if (arr.length === 0) return 0;
+
+    const section = arr[0].closest("section");
+        if (section && (section.dataset.type === 'income' || section.classList.contains("income"))) {
+            return 0;
+        }
+
+    return arr.reduce((total, input) => {
+            const raw = String(input.value || '').trim();
+            const cleaned = raw.replace(/[^0-9.\-]/g, '');
+            const n = cleaned === '' ? 0 : Number(cleaned);
+        return total + (Number.isFinite(n) ? n : 0);
+    }, 0)
+}
+const [...sections] = document.querySelectorAll("section");
+const filteredSections = Array.from(sections).filter(element => {
+    return element.classList.contains('inputs');
+});
+
+const inputs = filteredSections.map(section => 
+    Array.from(section.querySelectorAll("input"))
+)
+
+const canvas = document.getElementById("budgetChart") || document.querySelector("canvas");
+let current_chart = null;
+
+function update() {
+    current_chart?.destroy();
+    const dataArray = inputs.map(sectionInputs => sum(sectionInputs));
+    console.log('chart data:', dataArray);
+
+    current_chart = new Chart(canvas, {
+        type: "doughnut",
+        data: {
+            labels: ["Monthly Income", "Student Loans", "Housing", "Essentials","Lifestyle","Future-Proofing"],
+            datasets: [
+                    {
+                        label: "Total Expenses",
+                        data: dataArray
+                    }
+                ]
+        }
+    });
+}
+
+document.body.addEventListener("input", () => {
+    update();
+});
+
+update();

@@ -7,9 +7,6 @@
     <title>Budget Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
-</html>
-
 <body>
     <header>
         <nav>
@@ -38,7 +35,8 @@
 
         <section id="mainContent">
             <section id="showBudget">
-                <!-- Pie chart will be here, next developer will do research to find out how to implement that into the HTML document.-->
+                <!-- Pie chart will be here -->
+                <canvas id="budgetChart" role="img" aria-label="Budget breakdown chart"></canvas>
                 <section id="NetIncome">
                     <h3>Net Income</h3>
                     <p>$385</p>
@@ -77,7 +75,7 @@
                             you make.</p>
                     </section>
 
-                    <section class="inputs">
+                    <section class="inputs income" data-type="income">
                         <select class="options">
                             <option value="placeholder">Placeholder</option>
                             <option value="placeholder">Placeholder</option>
@@ -209,6 +207,6 @@
         </section>
 
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
 </body>
